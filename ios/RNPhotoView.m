@@ -296,24 +296,6 @@
         }
         _source = source;
         NSURL *imageURL = [NSURL URLWithString:uri];
-<<<<<<< HEAD
-
-        @try {
-            UIImage *image = RCTImageFromLocalAssetURL(imageURL);
-            if (image) { // if local image
-                [self setImage:image];
-                if (_onPhotoViewerLoad) {
-                    _onPhotoViewerLoad(nil);
-                }
-                if (_onPhotoViewerLoadEnd) {
-                    _onPhotoViewerLoadEnd(nil);
-                }
-                return;
-            }
-        }
-        @catch (NSException *exception) {
-            NSLog(@"%@", exception.reason);
-=======
         
         if (![[uri substringToIndex:4] isEqualToString:@"http"]) {
             @try {
@@ -332,7 +314,6 @@
             @catch (NSException *exception) {
                 NSLog(@"%@", exception.reason);
             }
->>>>>>> e28f5416574cbfa07b2d4fa862c0048df56f7b02
         }
 
         NSURLRequest *request = [[NSURLRequest alloc] initWithURL:imageURL];
@@ -433,11 +414,7 @@
     _maxZoomScale = 5.0;
 
     // Setup
-<<<<<<< HEAD
     self.backgroundColor = [UIColor blackColor];
-=======
-    self.backgroundColor = [UIColor clearColor];
->>>>>>> e28f5416574cbfa07b2d4fa862c0048df56f7b02
     self.delegate = self;
     self.decelerationRate = UIScrollViewDecelerationRateFast;
     self.showsVerticalScrollIndicator = YES;
@@ -447,20 +424,12 @@
     _tapView = [[MWTapDetectingView alloc] initWithFrame:self.bounds];
     _tapView.tapDelegate = self;
     _tapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-<<<<<<< HEAD
     _tapView.backgroundColor = [UIColor blackColor];
-=======
-    _tapView.backgroundColor = [UIColor clearColor];
->>>>>>> e28f5416574cbfa07b2d4fa862c0048df56f7b02
     [self addSubview:_tapView];
 
     // Image view
     _photoImageView = [[MWTapDetectingImageView alloc] initWithFrame:self.bounds];
-<<<<<<< HEAD
     _photoImageView.backgroundColor = [UIColor blackColor];
-=======
-    _photoImageView.backgroundColor = [UIColor clearColor];
->>>>>>> e28f5416574cbfa07b2d4fa862c0048df56f7b02
     _photoImageView.contentMode = UIViewContentModeCenter;
     _photoImageView.tapDelegate = self;
     [self addSubview:_photoImageView];
